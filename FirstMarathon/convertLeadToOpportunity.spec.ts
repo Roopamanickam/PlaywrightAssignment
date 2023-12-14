@@ -6,8 +6,10 @@ test("Lead Creation and Conversion to Opportunity", async({page})=>{
     await page.goto("https://login.salesforce.com/");
 
     //Enter username,Password and login
-    await page.locator('#username').fill('hari.radhakrishnan@qeagle.com');
-    await page.locator('#password').fill('Testleaf@1234');
+   /*  await page.locator('#username').fill('hari.radhakrishnan@qeagle.com');
+    await page.locator('#password').fill('Testleaf@1234'); */
+    await page.locator('#username').fill('radhakrishnan@testleaf.com');
+    await page.locator('#password').fill('Chennai@123');
     await page.locator('#Login').click();
 
     //click toggle menu (css)
@@ -40,8 +42,7 @@ test("Lead Creation and Conversion to Opportunity", async({page})=>{
     //In the newly created Lead page, locate the dropdown near Submit for Approval button and click on the Convert link.
     await page.locator(".menu-button-item").click();
     await page.locator("span:text-is('Convert')").click();
-    await page.pause();
-
+    
     //Click on the Opportunity Name input field, clear and enter a new opportunity name.
     await page.getByLabel('Account Name*').clear();
     const newOppName = 'Amazon';
